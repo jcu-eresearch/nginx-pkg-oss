@@ -142,7 +142,7 @@ if [ $CHECK_DEPENDS = 1 ]; then
 	if [ "${1##*.}" == "git" ]; then
 		CORE_PACKAGES="$CORE_PACKAGES git"
 	fi
-	sudo $PKG_MGR install $CORE_PACKAGES $NGINX_PACKAGES $DEVEL_PACKAGES
+	sudo $PKG_MGR install -y $CORE_PACKAGES $NGINX_PACKAGES $DEVEL_PACKAGES
 fi
 
 #
@@ -276,10 +276,12 @@ echo "$ME: INFO: Downloading NGINX packaging tool"
 cd $BUILD_DIR
 if [ "$BUILD_PLATFORM" = "OSS" ]; then
 	if [ "$OSS_VER" != "" ]; then
-		MERCURIAL_TAG="-r $OSS_VER-1"
+		GIT_TAG="$OSS_VER-branch"
 	fi
-	hg clone $MERCURIAL_TAG http://hg.nginx.org/pkg-oss
-	cd pkg-oss/$PACKAGING_DIR
+	git clone https://github.com/jcu-eresearch/nginx-pkg-oss.git pkg-oss
+	cd pkg-oss
+	git checkout $GIT_TAG
+	cd $PACKAGING_DIR
 else
 	wget -O - http://hg.nginx.org/pkg-oss/archive/target-plus-r$PLUS_REL.tar.gz  | tar xfz -
 	cd pkg-oss-target-plus-r$PLUS_REL/$PACKAGING_DIR
