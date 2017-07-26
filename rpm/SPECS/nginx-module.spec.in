@@ -17,6 +17,9 @@ BuildRequires: libopenssl-devel
 %if 0%{?rhel} == 7
 %define epoch 1
 Epoch: %{epoch}
+# CentOS 7 speciies dist as ".el7.centos" (https://bugs.centos.org/view.php?id=7416)
+# but releases for nginx are just ".el7" so force this.
+%define dist .el7
 %endif
 
 %define main_version %%MAIN_VERSION%%
