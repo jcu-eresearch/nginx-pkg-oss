@@ -32,7 +32,7 @@ Vendor: %%MODULE_PACKAGE_VENDOR%%
 URL: %%MODULE_PACKAGE_URL%%
 Group: %{_group}
 
-Source0: http://nginx.org/download/nginx-%{main_version}.tar.gz
+Source0: https://nginx.org/download/nginx-%{main_version}.tar.gz
 Source1: %%COPYRIGHT_SOURCE%%
 %%MODULE_SOURCES%%
 
