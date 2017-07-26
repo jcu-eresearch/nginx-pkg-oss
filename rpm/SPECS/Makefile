@@ -292,10 +292,10 @@ modules:	$(addprefix module-, $(MODULES))
 specs:	nginx.spec $(addsuffix .spec, $(addprefix nginx-module-, $(MODULES)))
 
 $(BASE_SRC):
-	wget http://nginx.org/download/$(BASE_SRC)
+	wget https://nginx.org/download/$(BASE_SRC)
 
 $(SRCPATH)/$(BASE_SRC):
-	@cd $(SRCPATH) && wget http://nginx.org/download/$(BASE_SRC)
+	@cd $(SRCPATH) && wget https://nginx.org/download/$(BASE_SRC)
 
 base:	nginx.spec $(SRCPATH)/$(BASE_SRC)
 	@echo "===> Building base package" ; \
