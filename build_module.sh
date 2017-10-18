@@ -129,7 +129,7 @@ if [ `whereis yum | grep -c "^yum: /"` -eq 1 ]; then
         PKG_MGR=yum
 	PKG_FMT=rpm
 	NGINX_PACKAGES="pcre-devel zlib-devel openssl-devel"
-	DEVEL_PACKAGES="rpm-build"
+	DEVEL_PACKAGES="rpm-build redhat-lsb-core"
 	PACKAGING_ROOT=${HOME}/rpmbuild/
 	PACKAGING_DIR=rpm/SPECS
 	PACKAGE_SOURCES_DIR=../SOURCES
